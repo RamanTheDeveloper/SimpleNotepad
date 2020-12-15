@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="View\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
