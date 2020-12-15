@@ -9,7 +9,7 @@
         xmlns:sys="cle-namespace:System;assembly=mscorlib" 
         xmlns:sys1="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="FontDialog" Height="300" Width="300">
+        Title="Font Dialog" Height="300" Width="300">
     <Window.Resources>
         <ObjectDataProvider x:Key="FontFamilyOptions"
                             ObjectType="{x:Type media:Fonts}"
