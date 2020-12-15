@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace SimpleNotepad
 {
-    public class RelayCommand
+    public class RelayCommand : ICommand
     {
         readonly Action _execute;
         readonly Func<bool> _canExecute;
