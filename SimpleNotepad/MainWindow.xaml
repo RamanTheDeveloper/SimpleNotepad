@@ -8,10 +8,11 @@
         Title="Notepad" Height="450" Width="800" Background="#FFCBCBCB">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="94*"/>
             <ColumnDefinition Width="679*"/>
         </Grid.ColumnDefinitions>
-        <Menu x:Name="menu1" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Menu x:Name="menu1" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem x:Name="file" Header="File">
                 <MenuItem x:Name="_new" Header="New"/>
                 <MenuItem x:Name="open" Header="Open"/>
@@ -23,5 +24,11 @@
                 <MenuItem x:Name="font" Header="Font"/>
             </MenuItem>
         </Menu>
+        <RichTextBox Margin="0,22,0,0" Grid.ColumnSpan="3">
+            <FlowDocument>
+                <Paragraph>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </Window>
