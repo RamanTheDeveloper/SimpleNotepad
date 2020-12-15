@@ -21,6 +21,10 @@ namespace SimpleNotepad.ViewModels
         public FileViewModel(DocumentModel document)
         {
             Document = document;
+            NewCommand = new RelayCommand(NewFile);
+            SaveCommand = new RelayCommand(SaveFile);
+            SaveAsCommand = new RelayCommand(SaveFileAs);
+            OpenCommand = new RelayCommand(OpenFile);
         }
 
         public void NewFile()
@@ -30,7 +34,7 @@ namespace SimpleNotepad.ViewModels
             Document.Text = string.Empty;
         }
 
-        private void SavedFile()
+        private void SaveFile()
         {
             File.WriteAllText(Document.FilePath, Document.Text);
         }
