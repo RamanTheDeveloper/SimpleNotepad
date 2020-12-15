@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="file-code-solid.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="View\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="file-code-solid.svg" />
   </ItemGroup>
 
 </Project>

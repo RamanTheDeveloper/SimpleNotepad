@@ -24,7 +24,9 @@ namespace SimpleNotepad.ViewModels
         private void OpenStyleDialog()
         {
             //Will open a Style dialog here
-            throw new NotImplementedException();
+            var fontDialog = new FontDialog();
+            fontDialog.DataContext = Format;
+            fontDialog.ShowDialog();
         }
 
         private void ToggleWrap()
