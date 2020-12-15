@@ -48,7 +48,7 @@ namespace SimpleNotepad.Models
         }
 
         private double _size;
-        public double size
+        public double Size
         {
             get { return _size; }
             set { OnPropertyChanged(ref _size, value); }

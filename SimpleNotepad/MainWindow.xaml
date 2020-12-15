@@ -4,31 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleNotepad"
+        xmlns:viewmodels="clr-namespace:SimpleNotepad.ViewModels"
         mc:Ignorable="d"
         Title="Notepad" Height="450" Width="800" Background="#FFCBCBCB">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="94*"/>
-            <ColumnDefinition Width="679*"/>
-        </Grid.ColumnDefinitions>
-        <Menu x:Name="menu1" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <MenuItem x:Name="file" Header="File">
-                <MenuItem x:Name="_new" Header="New"/>
-                <MenuItem x:Name="open" Header="Open"/>
-                <MenuItem x:Name="save" Header="Save"/>
-                <MenuItem x:Name="save_as" Header="Save As"/>
-                <MenuItem x:Name="exit" Header="Exit"/>
-            </MenuItem>
-            <MenuItem x:Name="view" Header="View">
-                <MenuItem x:Name="font" Header="Font"/>
-            </MenuItem>
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+    <DockPanel Margin="1">
+        <Menu DockPanel.Dock="Top">
+            <Menu.Items>
+                <MenuItem Header="File">
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Open"/>
+                    <MenuItem Header="Save"/>
+                    <MenuItem Header="Save As..."/>
+                </MenuItem>
+                <MenuItem Header="Format">
+                    <MenuItem Header="Format"/>
+                    <MenuItem Header="Word Wrap"/>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About"/>
+                </MenuItem>
+            </Menu.Items>
         </Menu>
-        <RichTextBox Margin="0,22,0,0" Grid.ColumnSpan="3">
-            <FlowDocument>
-                <Paragraph>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-    </Grid>
+
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Bottom"
+                       DataContext="{Binding File.Document}"
+                       Text="{Binding FilePath}"/>
+            <TextBox DockPanel.Dock="Top"
+                     VerticalScrollBarVisibility="Visible"
+                     DataContext="{Binding Editor}"
+                     FontFamily="{Binding Format.Family}"
+                     FontSize="{Binding Format.Size}"
+                     FontWeight="{Binding Format.Weight}"
+                     TextWrapping="{Binding Format.Wrap}"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     Text="{Binding Document.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </DockPanel>
+    </DockPanel>
 </Window>
